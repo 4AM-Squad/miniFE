@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" href="../../assets/marker.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../../loader.css">
+	<title>Teacher Login</title>
+</head>
+
+<body>
+	<div class="loader hide" id="preloader">
+        <img src="./assets/marker100.png" alt="Loading..." />
+        <h1>Loading...</h1>
+    </div>
+	<img src="../../assets/logo.png" class="logo">
+	<video class="vidnit" autoplay="autoplay" loop muted id="bgvid">
+		<source src="../../assets/nitkkr.mp4" type="video/mp4">
+	</video>
+
+	<div class="center">
+
+		<h1>Login</h1>
+		<form method="post">
+			<div class="txt_field">
+				<input id="teacherid" type="text" style="color: aliceblue;" required>
+				<span></span>
+				<label>Teacher ID</label>
+			</div>
+			<div class="txt_field">
+				<input id="teacherpwd" type="password" style="color:aliceblue" required>
+				<span></span>
+				<label>Password</label>
+			</div>
+			<input id="loginbtn" type="submit" value="Login">
+			<div>
+				<br>
+			</div>
+		</form>
+	</div>
+
+	<script src="../../loader.js"></script>
+	<script src="./login.js"></script>
+</body>
+
+</html>

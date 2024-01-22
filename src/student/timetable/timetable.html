@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Student Timetable</title>
+    <link rel="stylesheet" href="../../loader.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="timetable.css">
+    <link rel="shortcut icon" href="../../assets/marker.ico" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="loader hide" id="preloader">
+        <img src="./assets/marker100.png" alt="Loading..." />
+        <h1>Loading...</h1>
+    </div>
+    <div class='StudentCompo'>
+        <div class="mapcontainer">
+            <div class="times">
+                <h2>Club Meetings</h2>
+                <div id="meets">
+
+                </div>
+                <h2>Your Today's Timetable</h2>
+                <div class="table"></div>
+            </div>
+            <div id="map"></div>
+        </div>
+        <div class="menu-bar">
+            <a href="../student.html">
+                <h1 class="logo">NIT<span>miniMap.</span></h1>
+            </a>
+            <i class='bx bx-menu' id="menu"></i>
+            <ul id="navbarid">
+                <li><a href="../student.html">Explore</a></li>
+                <li><a href="./timetable.html">Time-Table</a></li>
+                <!-- <li><a class="button" href="#divOne">To-do</a></li> -->
+                <li><a href="#">Go-to <i class="fas fa-caret-down"></i></a>
+
+                    <div class="dropdown-menu" style="z-index: 1;">
+                        <ul id="loclist">
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Contact us <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-menu1">
+                        <a href="https://www.instagram.com/palak_310_/" target="_blank">
+                            <h4><img  style=" height:17px;" src="../../assets/insta.png"/> PALAK</h4>
+                        </a>
+                        <a href="https://www.instagram.com/garvitmukhija_08/" target="_blank">
+                            <h4><img  style=" height:17px;" src="../../assets/insta.png"/> GARVIT</h4>
+                        </a>
+                        <a href="https://www.instagram.com/realvanshsukhija/" target="_blank">
+                            <h4><img  style=" height:17px;" src="../../assets/insta.png"/> VANSH</h4>
+                        </a>
+                        <a href="https://www.instagram.com/tushar._.2908/" target="_blank">
+                            <h4><img  style=" height:17px;" src="../../assets/insta.png"/> TUSHAR</h4>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <div class="useridblock">
+                <div class="userdetails">
+                    <div id="username"></div>
+                    <div id="userrollno"></div>
+                    <div id="logout">Logout</div>
+                </div>
+                <img src="../../assets/PFPW.png" alt="ProfilePicture">
+            </div>
+        </div>
+    </div>
+    <script src="timetable.js"></script>
+    <script>
+        let navb = document.querySelector('#menu');
+        let navbar = document.querySelector('#navbarid');
+        navb.onclick = () => {
+            navb.classList.toggle('bx-x');
+            navbar.classList.toggle('active');
+        };
+    </script>
+    <script src="../../loader.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+* {
+	margin: 0;
+}
+
+.center {
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	backdrop-filter: blur(5px);
+	filter: drop-shadow(3px 10px 15px rgba(0, 0, 0, 0.45));
+	width: 40%;
+	animation: fadeIn 8.69s forwards;
+	overflow: hidden;
+}
+
+.center h2 {
+	text-align: center;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	letter-spacing: 3px;
+}
+
+.screen {
+	background-size: cover;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+video {
+	object-fit: cover;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.container {
+	border-radius: 1000px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+
+.intro {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: white;
+	padding: 1rem 0;
+}
+
+#nitMM-text {
+	font-size: 50px;
+}
+
+.btns {
+	background-color: rgba(0, 0, 255, 0.295);
+	display: flex;
+	border-radius: 2%;
+	width: fit-content;
+}
+
+.multi-button {
+	width: 90%;
+	filter: drop-shadow(3px 10px 15px rgba(0, 0, 0, 0.45));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+}
+
+.multi-button button {
+	height: 80px;
+	width: 200px;
+	background: linear-gradient(to bottom, #92cc2f, #3b3b3b);
+	font-weight: bold;
+	color: white;
+	font-size: 1.3rem;
+	border: none;
+	margin: 4px;
+	padding: 0;
+	stroke: black;
+	outline: none;
+}
+
+button:hover {
+	cursor: pointer;
+	filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.45));
+}
+
+@keyframes fadeIn {
+	0% {
+		height: 0;
+	}
+	94% {
+		height: 0;
+	}
+	95% {
+		height: auto;
+		opacity: 0;
+	}
+	100% {
+		height: auto;
+		opacity: 1;
+	}
+}
+
+.logo {
+	width: 90%;
+}

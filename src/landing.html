@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIT miniMap</title>
+    <link rel="shortcut icon" href="../src/assets/marker.ico" type="image/x-icon">
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="./loader.css">
+</head>
+
+<body>
+    <div class="loader hide" id="preloader">
+        <img alt="Loading..." />
+        <h1>Loading...</h1>
+    </div>
+    <div class='screen'>
+        <video autoplay="autoplay" muted id="bgvid">
+            <source src="./assets/googleearth.mp4" type="video/mp4">
+        </video>
+        <div class='center'>
+            <img src="./assets/logo.png" class="logo">
+            <div class='intro'>
+                <h2 class='text'>Hi! We are Team 4AM SQUAD</h2>
+                <h2 class='text'>and you are a....?</h2>
+            </div>
+            <div class='multi-button'>
+                <button id='teacher'>Teacher</button>
+                <button id='student'>Student</button>
+                <button id='club'>Club Official</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="landing.js"></script>
+    <script src="./loader.js"></script>
+</body>
+
+</html>
