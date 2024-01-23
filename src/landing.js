@@ -9,13 +9,13 @@ window.addEventListener('load', () => {
 });
 
 teacher.addEventListener('click', () => {
-    window.location.href = 'teacher/login page/login.html';
+    window.location.href = 'teacher/login/login.html';
 });
 
 student.addEventListener('click', () => {
-    window.location.href = 'student/Register page/register.html';
+    window.location.href = 'student/Register/register.html';
 });
 
 club.addEventListener('click', () => {
-    window.location.href = 'club/login page/login.html';
+    window.location.href = 'club/login/login.html';
 });
