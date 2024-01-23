@@ -1,5 +1,10 @@
 let latt = 29.947001, lngg = 76.816805;
-
+let api = 'http://localhost:3000';
+fetch('../../../api.json')
+	.then(response => response.json())
+	.then(data => {
+		api = data.api;
+	})
 function loadGoogleMaps(url) {
 	const script = document.createElement('script');
 	script.src = url;
@@ -9,7 +14,7 @@ function loadGoogleMaps(url) {
 	console.log('Google Maps API loaded')
 }
 
-fetch('http://localhost:3000/apiurl')
+fetch(`${api}/apiurl`)
 	.then(response => response.json())
 	.then(data => {
 		loadGoogleMaps(data.apiURL);

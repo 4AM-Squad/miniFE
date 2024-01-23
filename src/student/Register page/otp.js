@@ -1,3 +1,9 @@
+let api = 'http://localhost:3000';
+fetch('../../../api.json')
+	.then(response => response.json())
+	.then(data => {
+		api = data.api;
+	})
 let user = JSON.parse(localStorage.getItem("user"));
 let msg = document.getElementById('msg');
 console.log(user)
@@ -16,7 +22,7 @@ async function sendOTP() {
         "to": user.domain_id,
         "otp": unqid
     }
-    await fetch(`http://localhost:3000/otp/`, {
+    await fetch(`${api}/otp/`, {
         method: 'POST',
         body: JSON.stringify(bd),
         headers: { 'Content-Type': 'application/json' }
@@ -39,7 +45,7 @@ submitbtn.addEventListener('click', async (e) => {
     if (flag == true && otpbox.value == unqid) {
         user.subsection = parseInt(user.subsection);
         console.log(user)
-        await fetch(`http://localhost:3000/studentdb/`, {
+        await fetch(`${api}/studentdb/`, {
             method: 'POST',
             body: JSON.stringify(user),
             headers: { 'Content-Type': 'application/json' }

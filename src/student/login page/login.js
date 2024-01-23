@@ -1,3 +1,9 @@
+let api = 'http://localhost:3000';
+fetch('../../../api.json')
+	.then(response => response.json())
+	.then(data => {
+		api = data.api;
+	})
 let rollbox = document.getElementById("roll");
 let passbox = document.getElementById("pas");
 let btn = document.getElementById("log");
@@ -6,7 +12,7 @@ btn.addEventListener('click', async (e) => {
     e.preventDefault();
     let user;
 
-    await fetch(`http://localhost:3000/studentdb/${rollbox.value}`)
+    await fetch(`${api}/studentdb/${rollbox.value}`)
         .then(response => response.json())
         .then(data => {
             if (data.length == 0) {

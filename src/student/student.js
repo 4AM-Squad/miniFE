@@ -1,4 +1,9 @@
-
+let api = 'http://localhost:3000';
+fetch('../../api.json')
+	.then(response => response.json())
+	.then(data => {
+		api = data.api;
+	})
 let locations;
 let loclist = document.getElementById('loclist');
 
@@ -11,7 +16,7 @@ function loadGoogleMaps(url) {
 	console.log('Google Maps API loaded')
 }
 
-fetch('http://localhost:3000/apiurl')
+fetch(`${api}/apiurl`)
 	.then(response => response.json())
 	.then(data => {
 		loadGoogleMaps(data.apiURL);
@@ -51,7 +56,7 @@ function initMap() {
 					animation: google.maps.Animation.DROP
 				});
 
-				marker.addListener("click", (e) => {
+				marker.addListener("click", (_) => {
 					const contentString =
 						'<div class="info-window-content">' +
 						'<h2>' + element.name + '</h2>' +

@@ -1,4 +1,9 @@
-
+let api = 'http://localhost:3000';
+fetch('../../../api.json')
+	.then(response => response.json())
+	.then(data => {
+		api = data.api;
+	})
 let locations;
 let loclist = document.getElementById('loclist');
 let sub = document.getElementById('sub');
@@ -22,7 +27,7 @@ function loadGoogleMaps(url) {
     console.log('Google Maps API loaded')
 }
 
-fetch('http://localhost:3000/apiurl')
+fetch(`${api}/apiurl`)
     .then(response => response.json())
     .then(data => {
         loadGoogleMaps(data.apiURL);
@@ -69,7 +74,7 @@ function initMap() {
     if (subsec <= 4)
         sec = 'A';
 
-    fetch(`http://localhost:3000/timetable/${day}/${user.branch}/${sec}/${subsec}`)
+    fetch(`${api}/timetable/${day}/${user.branch}/${sec}/${subsec}`)
         .then(response => response.json())
         .then(data => {
             data.forEach(el => {
@@ -125,7 +130,7 @@ function initMap() {
         })
         .catch(err => console.log(err));
 
-    fetch(`http://localhost:3000/clubdb`)
+    fetch(`${api}/clubdb`)
         .then(response => response.json())
         .then(data => {
             data.forEach(club => {

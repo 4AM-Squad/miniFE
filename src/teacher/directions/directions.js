@@ -1,5 +1,10 @@
 let latt = 29.947001, lngg = 76.816805;
-
+let api = 'http://localhost:3000';
+fetch('../../../api.json')
+	.then(response => response.json())
+	.then(data => {
+		api = data.api;
+	})
 function loadGoogleMaps(url) {
 	const script = document.createElement('script');
 	script.src = url;
@@ -9,7 +14,7 @@ function loadGoogleMaps(url) {
 	console.log('Google Maps API loaded')
 }
 
-fetch('http://localhost:3000/apiurl')
+fetch(`${api}/apiurl`)
 	.then(response => response.json())
 	.then(data => {
 		loadGoogleMaps(data.apiURL);
@@ -96,14 +101,14 @@ async function removeClass(element) {
 	const branch = element.parentNode.childNodes[5].innerHTML.split(' - ')[0]
 	const section = element.parentNode.childNodes[5].innerHTML.split(' - ')[1][0]
 	const subsection = element.parentNode.childNodes[5].innerHTML.split(' - ')[1][1]
-	await fetch(`http://localhost:3000/timetable/${day}/${branch}/${section}/${subsection}/${time}`)
+	await fetch(`${api}/timetable/${day}/${branch}/${section}/${subsection}/${time}`)
 		.then(response => response.json())
 		.then(data => {
 			classid = data[0]._id;
 		})
 		.catch(err => console.log(err));
 
-	await fetch(`http://localhost:3000/timetable/${classid}`, {
+	await fetch(`${api}/timetable/${classid}`, {
 		method: 'DELETE'
 	})
 		.then(response => response.json())
@@ -126,7 +131,7 @@ date.addEventListener('change', async () => {
 	let dayName = daysOfWeek[dayNumber];
 	let time = date.value.split('T')[1].concat(':00');
 
-	fetch(`http://localhost:3000/timetable/${dayName}`)
+	fetch(`${api}/timetable/${dayName}`)
 		.then(response => response.json())
 		.then(data => {
 			data.forEach(cls => {
@@ -186,7 +191,7 @@ addbtn.addEventListener('click', async () => {
 	let newTimeString = currentDate.toTimeString().substring(0, 8);
 
 	let sub, flag = true;
-	await fetch(`http://localhost:3000/timetable`)
+	await fetch(`${api}/timetable`)
 		.then(response => response.json())
 		.then(data => {
 			data.forEach(cls => {
@@ -210,7 +215,7 @@ addbtn.addEventListener('click', async () => {
 		"subsection": sub_select.value
 	}
 
-	await fetch('http://localhost:3000/timetable/', {
+	await fetch(`${api}/timetable/`, {
 		method: 'POST',
 		body: JSON.stringify(myClass),
 		headers: { 'Content-Type': 'application/json' },

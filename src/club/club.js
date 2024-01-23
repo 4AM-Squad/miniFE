@@ -1,6 +1,13 @@
 let locations;
 let loclist = document.getElementById('loclist');
 
+let api = 'http://localhost:3000';
+fetch('../../api.json')
+	.then(response => response.json())
+	.then(data => {
+		api = data.api;
+	})
+
 function loadGoogleMaps(url) {
 	const script = document.createElement('script');
 	script.src = url;
@@ -10,7 +17,7 @@ function loadGoogleMaps(url) {
 	console.log('Google Maps API loaded')
 }
 
-fetch('http://localhost:3000/apiurl')
+fetch(`${api}/apiurl`)
 	.then(response => response.json())
 	.then(data => {
 		loadGoogleMaps(data.apiURL);
@@ -98,7 +105,7 @@ async function getAllMems() {
 	club = JSON.parse(localStorage.clubuser)
 	memberArray = club.roll_no;
 	list.innerHTML = '';
-	await fetch(`http://localhost:3000/clubdb/${club.name}`)
+	await fetch(`${api}/clubdb/${club.name}`)
 		.then(res => res.json())
 		.then(data => {
 			data = data[0];
@@ -179,7 +186,7 @@ async function getAllMeets() {
 	club = JSON.parse(localStorage.clubuser)
 	list1.innerHTML = '';
 
-	await fetch(`http://localhost:3000/clubdb/${club.name}`)
+	await fetch(`${api}/clubdb/${club.name}`)
 		.then(res => res.json())
 		.then(data => {
 			data = data[0];
@@ -210,7 +217,7 @@ addmembtn.addEventListener('click', async () => {
 	club = JSON.parse(localStorage.clubuser)
 	list1.innerHTML = '';
 
-	await fetch(`http://localhost:3000/clubdb/${club.name}`)
+	await fetch(`${api}/clubdb/${club.name}`)
 		.then(res => res.json())
 		.then(async (data) => {
 			data = data[0];
@@ -222,7 +229,7 @@ addmembtn.addEventListener('click', async () => {
 					flag = false
 			})
 			if (flag) {
-				await fetch(`http://localhost:3000/studentdb/${inpmemTask.value}`)
+				await fetch(`${api}/studentdb/${inpmemTask.value}`)
 					.then(response => response.json())
 					.then(userdata => {
 						if (userdata.length) {
@@ -277,7 +284,7 @@ searchmembtn.addEventListener('click', () => {
 })
 
 async function changedb(clb) {
-	await fetch(`http://localhost:3000/clubdb/${clb._id}`, {
+	await fetch(`${api}/clubdb/${clb._id}`, {
 		method: 'PATCH',
 		headers: {
 			'Content-Type': 'application/json'

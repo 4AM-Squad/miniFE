@@ -1,4 +1,9 @@
-
+let api = 'http://localhost:3000';
+fetch('../../api.json')
+	.then(response => response.json())
+	.then(data => {
+		api = data.api;
+	})
 let locations;
 let loclist = document.getElementById('loclist');
 
@@ -11,7 +16,7 @@ function loadGoogleMaps(url) {
 	console.log('Google Maps API loaded')
 }
 
-fetch('http://localhost:3000/apiurl')
+fetch(`${api}/apiurl`)
 	.then(response => response.json())
 	.then(data => {
 		loadGoogleMaps(data.apiURL);
@@ -114,7 +119,7 @@ date.addEventListener('change', async () => {
 	let time = date.value.split('T')[1].concat(':00');
 	console.log(dayName)
 
-	fetch(`http://localhost:3000/timetable/${dayName}`)
+	fetch(`${api}/timetable/${dayName}`)
 		.then(response => response.json())
 		.then(data => {
 			data.forEach(cls => {
@@ -176,7 +181,7 @@ addbtn.addEventListener('click', async () => {
 	// console.log(newTimeString); // "12:55:00"
 
 	let sub, flag = true;
-	await fetch(`http://localhost:3000/timetable`)
+	await fetch(`${api}/timetable`)
 		.then(response => response.json())
 		.then(data => {
 			data.forEach(cls => {
@@ -201,7 +206,7 @@ addbtn.addEventListener('click', async () => {
 	}
 
 	console.log(myClass)
-	await fetch('http://localhost:3000/timetable/', {
+	await fetch(`${api}/timetable/`, {
 		method: 'POST',
 		body: JSON.stringify(myClass),
 		headers: { 'Content-Type': 'application/json' },

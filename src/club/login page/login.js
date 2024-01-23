@@ -2,9 +2,14 @@
 let branch_select = document.getElementById('branch_select')
 let loginbtn = document.getElementById('loginbtn')
 let loginpwd = document.getElementById('loginpwd')
+let api = 'http://localhost:3000';
+fetch('../../../api.json')
+	.then(response => response.json())
+	.then(data => {
+		api = data.api;
+	})
 
-
-fetch('http://localhost:3000/clubdb')
+fetch(`${api}/clubdb`)
     .then(response => response.json())
     .then(data => {
         data.forEach(element => {
@@ -18,7 +23,7 @@ loginbtn.addEventListener('click', (event) => {
     event.preventDefault()
     let str = branch_select.value.replaceAll(' ', '_')
     let pwd
-    fetch(`http://localhost:3000/clubdb/${str}`)
+    fetch(`${api}/clubdb/${str}`)
         .then(response => response.json())
         .then(data => {
             pwd = data[0].password
