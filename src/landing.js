@@ -19,3 +19,10 @@ student.addEventListener('click', () => {
 club.addEventListener('click', () => {
     window.location.href = 'club/login/login.html';
 });
+
+const bgvid = document.getElementById('bgvid');
+const center = document.getElementById('center');
+bgvid.onended = () => {
+    center.classList.remove('hide');
+    center.classList.add('trans');
+}
