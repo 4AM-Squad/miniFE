@@ -1,4 +1,4 @@
-let api = 'https://be-nit-mini-map.vercel.app/api';
+let api = 'http://localhost:3000/api';
 let user = JSON.parse(localStorage.getItem("user"));
 let msg = document.getElementById('msg');
 console.log(user)
