@@ -8,7 +8,7 @@ function loadGoogleMaps(url) {
 	script.defer = true;
 	script.async = true;
 	document.head.appendChild(script);
-	console.log('Google Maps API loaded')
+	// console.log('Google Maps API loaded')
 }
 
 fetch(`${api}/apiurl`)
@@ -112,14 +112,14 @@ date.addEventListener('change', async () => {
 	let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	let dayName = daysOfWeek[dayNumber];
 	let time = date.value.split('T')[1].concat(':00');
-	console.log(dayName)
+	// console.log(dayName)
 
 	fetch(`${api}/timetable/${dayName}`)
 		.then(response => response.json())
 		.then(data => {
 			data.forEach(cls => {
 				if (cls.start_time <= time && time <= cls.end_time) {
-					console.log(cls)
+					// console.log(cls)
 					let place = cls.location
 					for (let i = 1; i < loc_select.childNodes.length; i += 2) {
 						if (loc_select.childNodes[i].value == place) {
@@ -200,7 +200,7 @@ addbtn.addEventListener('click', async () => {
 		"subsection": sub_select.value
 	}
 
-	console.log(myClass)
+	// console.log(myClass)
 	await fetch(`${api}/timetable/`, {
 		method: 'POST',
 		body: JSON.stringify(myClass),

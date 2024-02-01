@@ -50,7 +50,7 @@ insertbtn.addEventListener("click", async (event) => {
         "domain_id": domainidbox.value,
         "password": passbox.value
     }
-    console.log(user)
+    // console.log(user)
     localStorage.removeItem('user');
     localStorage.setItem("user", JSON.stringify(user));
     window.location.href = './otp.html'

@@ -12,7 +12,7 @@ let today = new Date();
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 let day = days[today.getDay()];
 const user = JSON.parse(localStorage.getItem('teacher'));
-console.log(user);
+// console.log(user);
 
 function loadGoogleMaps(url) {
     const script = document.createElement('script');
@@ -20,7 +20,7 @@ function loadGoogleMaps(url) {
     script.defer = true;
     script.async = true;
     document.head.appendChild(script);
-    console.log('Google Maps API loaded')
+    // console.log('Google Maps API loaded')
 }
 
 fetch(`${api}/apiurl`)
@@ -187,7 +187,7 @@ date.addEventListener('change', async () => {
         .then(data => {
             data.forEach(cls => {
                 if (cls.start_time <= time && time <= cls.end_time) {
-                    console.log(cls)
+                    // console.log(cls)
                     let place = cls.location
                     for (let i = 1; i < loc_select.childNodes.length; i += 2) {
                         if (loc_select.childNodes[i].value == place) {

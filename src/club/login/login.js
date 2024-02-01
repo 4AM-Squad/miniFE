@@ -8,7 +8,7 @@ fetch(`${api}/clubdb`)
     .then(response => response.json())
     .then(data => {
         data.forEach(element => {
-            console.log(element)
+            // console.log(element)
             let str = element.name.replaceAll('_', ' ')
             branch_select.innerHTML += `<option value="${str}">${str}</option>`
         })

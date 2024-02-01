@@ -9,7 +9,7 @@ function loadGoogleMaps(url) {
 	script.defer = true;
 	script.async = true;
 	document.head.appendChild(script);
-	console.log('Google Maps API loaded')
+	// console.log('Google Maps API loaded')
 }
 
 fetch(`${api}/apiurl`)
@@ -288,7 +288,7 @@ async function changedb(clb) {
 	})
 		.then(response => response.json())
 		.then(data => {
-			console.log(data)
+			// console.log(data)
 			localStorage.setItem('clubuser', JSON.stringify(data))
 		})
 }

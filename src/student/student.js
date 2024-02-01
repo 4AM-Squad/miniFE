@@ -8,7 +8,7 @@ function loadGoogleMaps(url) {
 	script.defer = true;
 	script.async = true;
 	document.head.appendChild(script);
-	console.log('Google Maps API loaded')
+	// console.log('Google Maps API loaded')
 }
 
 fetch(`${api}/apiurl`)
@@ -25,7 +25,7 @@ function initMap() {
 	});
 
 	const image = {
-		url: "../assetsmarker.png",
+		url: "../assets/marker.png",
 		size: new google.maps.Size(20, 32),
 		origin: new google.maps.Point(0, 0),
 		anchor: new google.maps.Point(0, 32),

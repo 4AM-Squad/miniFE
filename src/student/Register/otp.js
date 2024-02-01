@@ -1,7 +1,7 @@
 let api = 'http://localhost:3000/api';
 let user = JSON.parse(localStorage.getItem("user"));
 let msg = document.getElementById('msg');
-console.log(user)
+// console.log(user)
 let otpbox = document.getElementById('otp')
 let reotp = document.getElementById('reotp')
 let submitbtn = document.getElementById('signUp')
@@ -25,7 +25,7 @@ async function sendOTP() {
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             if (data.message == `OTP sent to mail ${user.domain_id} successfully`) {
                 msg.innerHTML = `An OTP has been sent to the email - ${user.domain_id}`
                 flag = true;
@@ -40,7 +40,7 @@ submitbtn.addEventListener('click', async (e) => {
     e.preventDefault();
     if (flag == true && otpbox.value == unqid) {
         user.subsection = parseInt(user.subsection);
-        console.log(user)
+        // console.log(user)
         await fetch(`${api}/studentdb/`, {
             method: 'POST',
             body: JSON.stringify(user),

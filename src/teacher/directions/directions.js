@@ -6,7 +6,7 @@ function loadGoogleMaps(url) {
 	script.defer = true;
 	script.async = true;
 	document.head.appendChild(script);
-	console.log('Google Maps API loaded')
+	// console.log('Google Maps API loaded')
 }
 
 fetch(`${api}/apiurl`)

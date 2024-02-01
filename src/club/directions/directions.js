@@ -6,7 +6,7 @@ function loadGoogleMaps(url) {
 	script.defer = true;
 	script.async = true;
 	document.head.appendChild(script);
-	console.log('Google Maps API loaded')
+	// console.log('Google Maps API loaded')
 }
 
 fetch(`${api}/apiurl`)
@@ -37,7 +37,7 @@ function initMap() {
 		function (position) {
 			latt = position.coords.latitude;
 			lngg = position.coords.longitude;
-			console.log(position.coords.latitude, position.coords.longitude);
+			// console.log(position.coords.latitude, position.coords.longitude);
 
 			directionsRenderer.setMap(map);
 			let origin = new google.maps.LatLng(latt, lngg);
@@ -49,14 +49,14 @@ function initMap() {
 				travelMode: 'WALKING'
 			}, function (response, status) {
 				if (status === 'OK') {
-					console.log(response);
+					// console.log(response);
 					directionsRenderer.setDirections(response);
 				} else {
 					window.alert('Directions request failed. Try Again');
 				}
 			},
 				function (error) {
-					console.log("Error occurred. Error code: " + error.code);
+					// console.log("Error occurred. Error code: " + error.code);
 				},
 				{
 					enableHighAccuracy: true,
@@ -67,7 +67,7 @@ function initMap() {
 
 		});
 
-	console.log(google.maps.geometry.spherical.computeDistanceBetween(origin, destination));
+	// console.log(google.maps.geometry.spherical.computeDistanceBetween(origin, destination));
 }
 
 function onClickHandler(element) {
