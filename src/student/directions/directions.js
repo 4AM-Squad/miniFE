@@ -1,9 +1,4 @@
-let api = 'http://localhost:3000';
-fetch('../../../api.json')
-	.then(response => response.json())
-	.then(data => {
-		api = data.api;
-	})
+let api = 'https://be-nit-mini-map.vercel.app/api';
 
 let latt = 29.947001, lngg = 76.816805;
 

@@ -1,12 +1,7 @@
 let teacherid = document.getElementById('teacherid')
 let teacherpwd = document.getElementById('teacherpwd')
 let loginbtn = document.getElementById('loginbtn')
-let api = 'http://localhost:3000';
-fetch('../../../api.json')
-	.then(response => response.json())
-	.then(data => {
-		api = data.api;
-	})
+let api = 'https://be-nit-mini-map.vercel.app/api';
 loginbtn.addEventListener('click', async (event) => {
     event.preventDefault()
     await fetch(`${api}/teacherdb/${teacherid.value}`)

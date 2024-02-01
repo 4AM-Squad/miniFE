@@ -1,9 +1,4 @@
-let api = 'http://localhost:3000';
-fetch('../../../api.json')
-	.then(response => response.json())
-	.then(data => {
-		api = data.api;
-	})
+let api = 'https://be-nit-mini-map.vercel.app/api';
 let rollbox = document.getElementById("roll");
 let passbox = document.getElementById("pas");
 let btn = document.getElementById("log");

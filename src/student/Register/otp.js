@@ -1,9 +1,4 @@
-let api = 'http://localhost:3000';
-fetch('../../../api.json')
-	.then(response => response.json())
-	.then(data => {
-		api = data.api;
-	})
+let api = 'https://be-nit-mini-map.vercel.app/api';
 let user = JSON.parse(localStorage.getItem("user"));
 let msg = document.getElementById('msg');
 console.log(user)
@@ -20,7 +15,8 @@ async function sendOTP() {
     unqid = parseInt((unqid % 100000000) / 100);
     let bd = {
         "to": user.domain_id,
-        "otp": unqid
+        "otp": unqid,
+        "name": user.name
     }
     await fetch(`${api}/otp/`, {
         method: 'POST',

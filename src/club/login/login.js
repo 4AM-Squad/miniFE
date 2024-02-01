@@ -2,12 +2,7 @@
 let branch_select = document.getElementById('branch_select')
 let loginbtn = document.getElementById('loginbtn')
 let loginpwd = document.getElementById('loginpwd')
-let api = 'http://localhost:3000';
-fetch('../../../api.json')
-	.then(response => response.json())
-	.then(data => {
-		api = data.api;
-	})
+let api = 'https://be-nit-mini-map.vercel.app/api';
 
 fetch(`${api}/clubdb`)
     .then(response => response.json())
